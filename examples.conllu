@@ -1,0 +1,166 @@
+# sent_id = blc-en-simple-ground
+# text = The chalet is among the trees and animals.  Her favorite spot is off the beaten track.
+1	The	the	_	DT	_	2	det	_	_
+2	chalet	chalet	_	NN	_	6	nsubj	_	_
+3	is	be	_	VBZ	_	6	cop	_	_
+4	among	among	_	IN	_	6	case	_	_
+5	the	the	_	DT	_	6	det	_	_
+6	trees	tree	_	NNS	_	0	root	_	_
+7	and	and	_	CC	_	8	cc	_	_
+8	animals	animal	_	NNS	_	6	conj	_	SpaceAfter=No
+9	.	.	_	.	_	6	punct	_	_
+
+1	Her	she	_	PRP$	_	3	nmod:poss	_	_
+2	favorite	favorite	_	JJ	_	3	amod	_	_
+3	spot	spot	_	NN	_	8	nsubj	_	_
+4	is	be	_	VBZ	_	8	cop	_	_
+5	off	off	_	IN	_	8	case	_	_
+6	the	the	_	DT	_	8	det	_	_
+7	beaten	beat	_	VBN	_	8	amod	_	_
+8	track	track	_	NN	_	0	root	_	SpaceAfter=No
+9	.	.	_	.	_	8	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-simple-iln-obl
+# text = The needle is right of centre.
+1	The	the	_	DT	_	2	det	_	_
+2	needle	needle	_	NN	_	4	nsubj	_	_
+3	is	be	_	VBZ	_	4	cop	_	_
+4	right	right	_	JJ	_	0	root	_	_
+5	of	of	_	IN	_	6	case	_	_
+6	centre	centre	_	NN	_	4	obl	_	SpaceAfter=No
+7	.	.	_	.	_	4	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-simple-iln-aux
+# text = She was left of the building.
+1	She	she	_	PRP	_	3	nsubj:pass	_	_
+2	was	be	_	VBD	_	3	aux:pass	_	_
+3	left	leave	_	VBN	_	0	root	_	_
+4	of	of	_	IN	_	6	case	_	_
+5	the	the	_	DT	_	6	det	_	_
+6	building	building	_	NN	_	3	obl	_	SpaceAfter=No
+7	.	.	_	.	_	3	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-simple-figure
+# text = It is north of London.  They were North of the city.
+1	It	it	_	PRP	_	0	root	_	_
+2	is	be	_	VBZ	_	1	dep	_	_
+3	north	north	_	RB	_	2	advmod	_	_
+4	of	of	_	IN	_	5	case	_	_
+5	London	London	_	NNP	_	3	obl	_	SpaceAfter=No
+6	.	.	_	.	_	1	punct	_	_
+
+1	They	they	_	PRP	_	3	nsubj	_	_
+2	were	be	_	VBD	_	3	cop	_	_
+3	North	North	_	NNP	_	0	root	_	_
+4	of	of	_	IN	_	6	case	_	_
+5	the	the	_	DT	_	6	det	_	_
+6	city	city	_	NN	_	3	nmod	_	SpaceAfter=No
+7	.	.	_	.	_	3	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-complex-ground-fixed
+# text = All of a sudden they were in front of us.
+1	All	all	_	DT	_	8	dep	_	_
+2	of	of	_	IN	_	4	case	_	_
+3	a	a	_	DT	_	4	det	_	_
+4	sudden	sudden	_	JJ	_	1	nmod	_	_
+5	they	they	_	PRP	_	8	nsubj	_	_
+6	were	be	_	VBD	_	8	cop	_	_
+7	in	in	_	IN	_	8	case	_	_
+8	front	front	_	NN	_	0	root	_	_
+9	of	of	_	IN	_	10	case	_	_
+10	us	we	_	PRP	_	8	nmod	_	SpaceAfter=No
+11	.	.	_	.	_	8	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-complex-iln-nmod
+# text = We are in back of the yards, as instructed.
+1	We	we	_	PRP	_	4	nsubj	_	_
+2	are	be	_	VBP	_	4	cop	_	_
+3	in	in	_	IN	_	4	case	_	_
+4	back	back	_	NN	_	0	root	_	_
+5	of	of	_	IN	_	7	case	_	_
+6	the	the	_	DT	_	7	det	_	_
+7	yards	yard	_	NNS	_	4	nmod	_	SpaceAfter=No
+8	,	,	_	,	_	4	punct	_	_
+9	as	as	_	IN	_	10	case	_	_
+10	instructed	instruct	_	VBN	_	4	advcl	_	SpaceAfter=No
+11	.	.	_	.	_	4	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-complex-iln-det
+# text = The paytable will be to the right of the screen.
+1	The	the	_	DT	_	2	det	_	_
+2	paytable	paytable	_	NN	_	7	nsubj	_	_
+3	will	will	_	MD	_	7	aux	_	_
+4	be	be	_	VB	_	7	cop	_	_
+5	to	to	_	IN	_	7	case	_	_
+6	the	the	_	DT	_	7	det	_	_
+7	right	right	_	NN	_	0	root	_	_
+8	of	of	_	IN	_	10	case	_	_
+9	the	the	_	DT	_	10	det	_	_
+10	screen	screen	_	NN	_	7	nmod	_	SpaceAfter=No
+11	.	.	_	.	_	7	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-complex-verb
+# text = Location was far off from downtown.
+1	Location	location	_	NN	_	2	nsubj	_	_
+2	was	be	_	VBD	_	0	root	_	_
+3	far	far	_	RB	_	4	advmod	_	_
+4	off	off	_	RB	_	2	advmod	_	_
+5	from	from	_	IN	_	6	case	_	_
+6	downtown	downtown	_	NN	_	4	obl	_	SpaceAfter=No
+7	.	.	_	.	_	2	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-simple-verb
+# text = It is north of London.
+1	It	it	_	PRP	_	0	root	_	_
+2	is	be	_	VBZ	_	1	dep	_	_
+3	north	north	_	RB	_	2	advmod	_	_
+4	of	of	_	IN	_	5	case	_	_
+5	London	London	_	NNP	_	3	obl	_	SpaceAfter=No
+6	.	.	_	.	_	1	punct	_	SpaceAfter=No
+
+
+# sent_id = blc-en-complex-ground-advmod
+# text = Location was far off from downtown.
+1	Location	location	_	NN	_	2	nsubj	_	_
+2	was	be	_	VBD	_	0	root	_	_
+3	far	far	_	RB	_	4	advmod	_	_
+4	off	off	_	RB	_	2	advmod	_	_
+5	from	from	_	IN	_	6	case	_	_
+6	downtown	downtown	_	NN	_	4	obl	_	SpaceAfter=No
+7	.	.	_	.	_	2	punct	_	SpaceAfter=No
+
+
+# sent_id = existantial-en-simple-verb
+# text = There is a prize in the wrapper.
+1	There	there	_	EX	_	2	expl	_	_
+2	is	be	_	VBZ	_	0	root	_	_
+3	a	a	_	DT	_	4	det	_	_
+4	prize	prize	_	NN	_	2	nsubj	_	_
+5	in	in	_	IN	_	7	case	_	_
+6	the	the	_	DT	_	7	det	_	_
+7	wrapper	wrapper	_	NN	_	4	nmod	_	SpaceAfter=No
+8	.	.	_	.	_	2	punct	_	SpaceAfter=No
+
+
+# sent_id = existantial-en-complex-verb
+# text = There is a prize on top of the wrapper.
+1	There	there	_	EX	_	2	expl	_	_
+2	is	be	_	VBZ	_	0	root	_	_
+3	a	a	_	DT	_	4	det	_	_
+4	prize	prize	_	NN	_	2	nsubj	_	_
+5	on	on	_	IN	_	6	case	_	_
+6	top	top	_	NN	_	4	nmod	_	_
+7	of	of	_	IN	_	9	case	_	_
+8	the	the	_	DT	_	9	det	_	_
+9	wrapper	wrapper	_	NN	_	6	nmod	_	SpaceAfter=No
+10	.	.	_	.	_	2	punct	_	SpaceAfter=No
+
+
