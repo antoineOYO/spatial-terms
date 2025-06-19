@@ -87,7 +87,7 @@ def to_pattern(
 
                     # instanciating a pattern object
                     current_pBLC = pattern(
-                        id=my_sample.get("id") + f":subsent-{sent_id}",
+                        id=my_sample.get("id"),
                         conllu_str=my_sample.get("conllu_str"),
                         footprint=footprint,
                         sub_sent_id=sent_id,
@@ -105,7 +105,7 @@ def to_pattern(
                             "figure": current_pBLC.conllu[sent_id][figure_id-1]["form"],
                             "st0": current_pBLC.conllu[sent_id][st0_id-1]["form"],
                             "ground": current_pBLC.conllu[sent_id][ground_id-1]["form"],
-                            "hash": current_pBLC.get('id') + f":{pattern_name}:{figure_id}-{st0_id}-{ground_id}",
+                            "hash": current_pBLC.get('id') + f":subsent-{sent_id}" + f":{pattern_name}:{figure_id}-{st0_id}-{ground_id}",
                         }
                     )
                 
@@ -227,39 +227,6 @@ def resolve(
 #%% main
 if __name__ == "__main__":
 
-    # from dependencyParser import *
-
-    # client = start_server(
-    #     device = 'laptop',
-    #     lang = 'en',
-    #     output = 'json',
-    # )
-
-    # for num,pat in enumerate(ALL_PATTERNS):
-    #     conllu_str = client.annotate(
-    #         pat.desc,
-    #         properties = {
-    #             'annotators': 'tokenize,ssplit,pos,lemma,depparse',
-    #             'outputFormat': 'conllu',
-    #             'depparse.language': 'english',
-    #             }
-    #     )
-    #     print('-'*30)
-    #     print(pat.desc)
-    #     print(conllu_str)
-
-    #     # we need to create a sample instance as input for the filter
-    #     sample_test = sample(
-    #         id=f"sample{num}",
-    #         conllu_str=conllu_str
-    #     )
-    #     raw_blc =filter(sample_test)
-    #     #print(json.dumps(raw_blc, indent=2, ensure_ascii=False))
-    #     potentialBLC = resolve(raw_blc, verbose=True)
-    #     for p in potentialBLC:
-    #         print(p["hash"])
-
-
     with open("examples.conllu", "r", encoding="utf-8") as f:
         parsed_corpus = [b for b in f.read().split("\n\n\n") if b.strip()]
         
@@ -285,4 +252,5 @@ if __name__ == "__main__":
             print('st0 :', p.get("st0"))
             print('Ground :', p.get("ground"))
             print('Pattern name :', p.get("patternName"))
+            print(p)
         print('\n\n\n')
