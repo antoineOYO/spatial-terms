@@ -15,10 +15,10 @@ The input consists of CoNLL-U parsed sentences, each with a mandatory unique sen
 
 ```json
 {   
-    'conllu_str' : '1   The     the    DET    DT   Definite=Def|PronType=Art   4   det     _   _',
-    'id' : 'test0',
-    'tokens' : ['The'],
-    'text' : 'The'
+    "conllu_str" : "1   The     the    DET    DT   Definite=Def|PronType=Art   4   det     _   _",
+    "id" : "test0",
+    "tokens" : ["The"],
+    "text" : "The"
 }
 ```
 - `conllu_str` is the input CoNNL-U in string format, with optionnaly metadata `text` and `sent_id`. 
@@ -34,13 +34,13 @@ Each match is returned as a `pattern` object, for example:
 
 ```json
 {
-    'conllu_str' : '1   The     the    DET    DT   Definite=Def|PronType=Art   4   det     _   _',
-    'id' : 'test0',
-    'tokens' : ['The'],
-    'text' : 'The',
-    'sub_sent_id': 0,
-    'footprint': [1],
-    'minimal_span': 'The'
+    "conllu_str" : "1   The     the    DET    DT   Definite=Def|PronType=Art   4   det     _   _",
+    "id" : "test0",
+    "tokens" : ["The"],
+    "text" : "The",
+    "sub_sent_id": 0,
+    "footprint": [1],
+    "minimal_span": "The"
 }
 ```
 - `sub_sent_id`: sub-sentences index for disambiguation
