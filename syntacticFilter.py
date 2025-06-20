@@ -32,6 +32,8 @@ corenlp_dir = os.path.join(resources, "stanford-corenlp-4.5.8/")
 os.environ["CORENLP_HOME"] = corenlp_dir
 
 #%% basic "be" english lemmatizer
+# A simple lemmatizer for the verb "be" in English
+# TODO : use in case no lemmatisation is provided in the CoNLL-U string
 be_forms = [
     'am', 'are', 'is', 'was', 'were', 'been', 'being', 'be',
     "'m", "'re", "'s",  # contractions
@@ -42,17 +44,19 @@ be_forms = [
 simple_lemmatizer_en = {form: 'be' for form in be_forms}
 
 #%% auxiliary functions
-def import_spatial_lexeme(file='spatial_terms.ods')-> tuple[dict, dict]:
+
+def import_spatial_lexeme(file='spatial_terms.csv') -> tuple[dict, dict]:
     """reads both spatial prepositions and localization nouns"""
-    trm = pd.read_excel(file, engine='odf')
-    LNs = dict()
-    PREPs = dict()
-    for _,row in trm.iterrows():
+    spatial_terms = pd.read_csv(file).dropna(how='all')
+    LNs = {} # Localization Nouns
+    PREPs = {} # Prepositions (simple)
+    for _, row in spatial_terms.iterrows():
         if pd.notna(row['LN']):
             LNs[row['LN']] = row
-        else :
+        else:
             PREPs[row['alphabetical_marker'].split(' ')[0]] = row
     return LNs, PREPs
+
 
 LNs, PREPs = import_spatial_lexeme()
 

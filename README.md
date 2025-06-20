@@ -1,10 +1,10 @@
 # spatial-terms
 
 We provide here a lexico-syntactic filter, based on Semgrex [1].
-- `spatial_terms.ods` is the lexicon of spatial terms
+- `spatial_terms.csv` is the lexicon of spatial terms
 - `mySemgrexPatterns.py` is the catalog of syntactic patterns
-- `syntacticFilter.py` operates the joint lexical and syntactic search of patterns
-- `myCorpusObjects.py` defines the main classes `sample` and `pattern` used in the code, explained next
+- `myCorpusObjects.py` defines the main classes `sample` and `pattern` used in the code
+- `syntacticFilter.py` operates the joint lexical and syntactic search of patterns (refer to its 'main' block for examples)
 
 > **Note**: `syntacticFilter.py` executes two main steps: `filter()` for pattern matching and `resolve()` for post-processing. The `resolve()` function is language-specific and handles disambiguation of overlapping matches.
 
