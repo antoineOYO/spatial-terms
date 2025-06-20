@@ -4,14 +4,18 @@ We provide here a lexico-syntactic filter, based on Semgrex [1].
 - `spatial_terms.ods` is the lexicon of spatial terms
 - `mySemgrexPatterns.py` is the catalog of syntactic patterns
 - `syntacticFilter.py` operates the joint lexical and syntactic search of patterns
-- `myCorpusObjects.py` defines the main classes used in the code, as explained next
+- `myCorpusObjects.py` defines the main classes `sample` and `pattern` used in the code, explained next
 
 > **Note**: `syntacticFilter.py` executes two main steps: `filter()` for pattern matching and `resolve()` for post-processing. The `resolve()` function is language-specific and handles disambiguation of overlapping matches.
 
 
 ### Inputs
 
-The input consists of CoNLL-U parsed sentences, each with a mandatory unique sentence identifier (for dwonstream tasks). Sentences are structured as `sample` objects, minimally represented as:
+Each input includes:  
+1) a CoNLL-U formatted sentence  
+2) a mandatory unique sentence identifier (used for downstream processing)
+
+Inputs are structured into `sample` objects, minimally as:
 
 ```json
 {   
@@ -21,12 +25,12 @@ The input consists of CoNLL-U parsed sentences, each with a mandatory unique sen
     "text" : "The"
 }
 ```
-- `conllu_str` is the input CoNNL-U in string format, with optionnaly metadata `text` and `sent_id`. 
+- `conllu_str` raw CoNLL-U string, optionally with `# text` and `# sent_id` metadata
 - `id` : sentence identifier
-- `tokens` : tokens from the CoNNL-U
-- `text` : metadata `text` if provided, else sequence of tokens.
+- `tokens` : list of tokens extracted from the CoNLL-U
+- `text` : sentence text (from metadata if present, else joined from tokens)
 
-> **NOTE :** the code handles CoNNL-U entailing multiple "sub-sentences", as it is the case in parallel texts
+> **NOTE :** the code handles single CoNLL-U inputs with multiple sub-sentences (as it is often the case for bitexts).
 
 ### Output
 
@@ -47,17 +51,17 @@ Each match is returned as a `pattern` object, for example:
 - `footprint`: indices of matched nodes
 - `minimal_span`: surface span ranging over the `footprint`
 
-### Special Outputs for Basic Locative Constructions (and more)
+### Special Outputs for Basic Locative Constructions and Existential Statements
 
 For BLCs and other complex spatial expressions, additional fields are included:
-- `nodes` : a dictionnary "role:index"
 - `patternName` : the name of the pattern matched
 - `figure` : the Figure text
 - `st0` : "main" term of the preposition (see terminology in the code)
 - `ground` : the Ground text
 - `hash` a unique identifier for each found pattern (compiles `id`, `sub_sent_id`, `patternName` and `footprint`)
+- `nodes` : a dictionnary {role:index} where the role is `figure`, `ground` etc
 
-### Example : an existential statement
+### Example : an Existential Statement
 Input :
 ```txt
 # sent_id = existantial-sample
