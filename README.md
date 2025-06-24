@@ -8,6 +8,16 @@ We provide here a lexico-syntactic filter, based on Semgrex [1].
 
 > **Note**: `syntacticFilter.py` executes two main steps: `filter()` for pattern matching and `resolve()` for post-processing. The `resolve()` function is language-specific and handles disambiguation of overlapping matches.
 
+### Set up
+
+`$CORENLP_HOME` must point to your CoreNLP directory, either via an environment variable or as a classpath. For example, in `syntacticFilter.py` main block :
+
+```python
+resources = os.path.expanduser("~/resources/")
+corenlp_dir = os.path.join(resources, "stanford-corenlp-4.5.8/")
+os.environ["CORENLP_HOME"] = corenlp_dir
+```
+
 
 ### Inputs
 

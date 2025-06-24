@@ -25,12 +25,6 @@ from stanza.utils.conll import CoNLL
 from google.protobuf.json_format import MessageToDict
 import pandas as pd
 
-# setting up the CoreNLP resources
-import os
-resources = os.path.expanduser("~/resources/")
-corenlp_dir = os.path.join(resources, "stanford-corenlp-4.5.8/")
-os.environ["CORENLP_HOME"] = corenlp_dir
-
 #%% basic "be" english lemmatizer
 # A simple lemmatizer for the verb "be" in English
 # TODO : use in case no lemmatisation is provided in the CoNLL-U string
@@ -230,6 +224,12 @@ def resolve(
 
 #%% main
 if __name__ == "__main__":
+
+    # setting up the CoreNLP resources
+    import os
+    resources = os.path.expanduser("~/resources/")
+    corenlp_dir = os.path.join(resources, "stanford-corenlp-4.5.8/")
+    os.environ["CORENLP_HOME"] = corenlp_dir
 
     with open("examples.conllu", "r", encoding="utf-8") as f:
         parsed_corpus = [b for b in f.read().split("\n\n\n") if b.strip()]
