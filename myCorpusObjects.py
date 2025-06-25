@@ -33,7 +33,7 @@ class sample(dict):
             raise ValueError("Either 'sent_id' metadata must be present in the conllu_str or an 'id' must be provided.")
 
         # Extract tokens and store them in a list
-        tokens = [token['form'] for sent in self.conllu for token in sent]
+        tokens = [token["form"] for sent in self.conllu for token in sent if isinstance(token["id"], int)]
         self['tokens'] = tokens
         self['text'] = self.conllu[0].metadata.get('text', ' '.join(tokens))
         
@@ -69,7 +69,7 @@ class pattern(sample):
         :param sent_id: the id of the sentence in which the pattern was found
         :param neighbors: windows of tokens to include around the pattern footprint
         """
-        if not self['footprint']:
+        if not self['footprint']:   
             return ""
 
         # Get the start and end indices from the pattern footprint
@@ -80,7 +80,7 @@ class pattern(sample):
         end_index = min(len(self['tokens']) - 1, end_index + window)
 
         # Extract the tokens from the conllu data
-        tokens = [token['form'] for token in self.conllu[sent_id]]
+        tokens = [token['form'] for token in self.conllu[sent_id] if isinstance(token["id"], int)]
         
         # Join the tokens to form the minimal span text
         min_span_text = ' '.join(tokens[start_index:end_index + 1])
@@ -133,3 +133,28 @@ if __name__ == "__main__":
         # no id provided : metadata 'sent_id' will be used
         )
     print(pattern_instance)
+
+    data2 = """
+    # sent_id = blc-fr-complex-ln-cop
+    # text = Il était au bord du chemin
+    1	Il	il	_	PRON	_	5	nsubj	_	_
+    2	était	était	_	AUX	_	5	cop	_	_
+    3-4	au	_	_	_	_	_	_	_	_
+    3	à	à	_	ADP	_	5	case	_	_
+    4	le	le	_	DET	_	5	det	_	_
+    5	bord	bord	_	NOUN	_	0	root	_	_
+    6-7	du	_	_	_	_	_	_	_	_
+    6	de	de	_	ADP	_	8	case	_	_
+    7	le	le	_	DET	_	8	det	_	_
+    8	chemin	chemin	_	NOUN	_	5	nmod	_	SpaceAfter=No
+    """
+    sample_instance2 = sample(
+        conllu_str=data2,
+        id='blc-fr-complex-ln-cop',
+    )
+    pattern_instance2 = pattern(
+        conllu_str=sample_instance2['conllu_str'],
+        footprint=[1, 8]
+    )
+    print(pattern_instance2)
+
